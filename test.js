@@ -1,8 +1,7 @@
 const fs = require('fs');
 const readLine = require('readline');
 const Curl = require('node-libcurl').Curl;
-// const URL = 'competitions.vrg.local/login';
-const URL = 'competitions.virtualrobotgames.ca/login';
+const URL = 'competitions.virtualrobotgames.ca';
 
 var user, pass;
 
@@ -10,7 +9,7 @@ async function login(u, p) {
     var curl = new Curl();
 
     curl.setOpt('USERPWD', `${u}:${p}`);
-    curl.setOpt('URL', URL);
+    curl.setOpt('URL', URL + '/login');
 
     console.info('Fetching data...');
     curl.on('end', async function(statusCode, body, headers) {
@@ -39,7 +38,7 @@ async function fetchData(token) {
     console.log('Fetching competition data...');
 
     curl.setOpt('POSTFIELDS', 'token=' + token);
-    curl.setOpt('URL', 'competitions.virtualrobotgames.ca/my-data');
+    curl.setOpt('URL', URL + 'my-data');
 
     await curl.on('end', function(statusCode, body, headers) {
         var b = JSON.parse(body);

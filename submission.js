@@ -4,10 +4,10 @@ const Curl = require('node-libcurl').Curl;
 // const URL = 'competitions.vrg.local/login';
 const URL = 'competitions.virtualrobotgames.ca/login';
 
-var registration_id = '9b1de6b3-a24f-4c97-be71-8ae0f8903b5b';
-var bracket_id = '5dba06ab-6919-479e-a060-9b7317de0af6';
-var score = 0;
-var time = 1200.01;
+const registration_id = '9b1de6b3-a24f-4c97-be71-8ae0f8903b5b';
+const bracket_id = '5dba06ab-6919-479e-a060-9b7317de0af6';
+const score = 0;
+const time = 1200.01;
 
 async function submitScore(string) {
     var curl = new Curl();
